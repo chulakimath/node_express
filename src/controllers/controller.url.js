@@ -10,7 +10,8 @@ export const createShortUrl = async (req, res) => {
     const result = await URL.create({
         shortId: shortId,
         redirectUrl: body.url,
-        visitHistory: []
+        visitHistory: [],
+        createdBy:req.user._id,
     })
     // return res.status(201).json({ id: shortId });
     return res.render("home", {
