@@ -9,5 +9,8 @@ export const signup = async (req, res) => {
     res.render("signup");
 }
 export const siginin = async (req, res) => {
-    res.render("login");
+    if(req.user){
+        return res.redirect("/")
+    }
+    return res.render("login");
 }
